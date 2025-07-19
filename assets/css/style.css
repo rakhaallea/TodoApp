@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --text-color: #393E46;
+    --text-light-color: #7F8CAA;
+    --bg-calender: #687FE5;
+    --bg-danger: #FF3F33;
+    --bg-success: #B0DB9C;
+    --bg-warning: #FFD63A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header nav {
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+}
+
+nav .profile-container,
+.search {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search {
+    cursor: pointer;
+}
+
+nav .profile-container {
+    text-decoration: none;
+    color: #393E46;
+}
+
+header nav .month-year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    gap: 8px;
+}
+
+header nav .input-search {
+    display: none;
+    padding: 4px 8px;
+}
+
+header .date-days {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 2px 14px 10px -4px rgba(0, 0, 0, 0.1);
+}
+
+header .open-profile {
+    cursor: pointer;
+    color: #687FE5;
+}
+
+header .profile {
+    width: max-content;
+    top: 5px;
+    left: 25px;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    padding: 25px;
+    background-color: #FFF;
+    box-shadow: 0px 14px 20px -4px rgba(0, 0, 0, 0.1);
+}
+
+.profile .closed {
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.profile h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profile p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.date-days {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 16px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.date-days::-webkit-scrollbar {
+    display: none;
+}
+
+.date-days .box {
+    scroll-snap-align: center;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF;
+    padding: 14px 24px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    transition: background 0.3s;
+}
+
+.text-month {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.date-days .box.active {
+    background-color: var(--bg-calender);
+}
+
+.date-days .box.active .text-month,
+.date-days .box.active .text-date {
+    color: #FFF;
+}
+
+
+main {
+    height: 100vh;
+    position: relative;
+    padding: 40px 24px;
+    background-color: rgb(239, 238, 234, .3);
+}
+
+main .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    font-size: 16px;
+    color: var(--text-light-color);
+    text-transform: uppercase;
+}
+
+main .todo,
+main .todo-completed {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title-completed {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main .card {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    padding: 16px 24px;
+    border-radius: 6px;
+    box-shadow: 3px 4px 24px 8px rgba(0, 0, 0, 0.03);
+}
+
+.card .left-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card .left-card .card-body {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card .left-card h3 {
+    font-size: 20px;
+}
+
+.card .priority {
+    color: #FFF;
+    padding: 2px 14px;
+    border-radius: 20px;
+}
+
+.card .priority.low {
+    background-color: var(--bg-success);
+}
+
+.card .priority.mid {
+    background-color: var(--bg-warning);
+}
+
+.card .priority.high {
+    background-color: var(--bg-danger);
+}
+
+.card .priority,
+.card .date,
+.card .time {
+    font-size: 14px;
+}
+
+.checked {
+    color: green;
+}
+
+.primary {
+    color: #687FE5;
+}
+
+.danger {
+    color: #FF3F33;
+}
+
+.right-card {
+    display: flex;
+    gap: 10px;
+}
+
+.right-card button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.add-task {
+    border: none;
+    position: fixed;
+    right: 24px;
+    bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #687FE5;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.add-task span {
+    font-size: 28px;
+}
+
+.add-new {
+    display: none;
+    top: 80px;
+    right: 20px;
+    left: 20px;
+    position: fixed;
+    background-color: #FFF;
+    padding: 32px 24px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.add-new h2 {
+    margin-bottom: 24px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.form-input input,
+.form-input select {
+    padding: 8px 12px;
+}
+
+.group-button {
+    display: flex;
+    justify-content: end;
+    gap: 14px;
+}
+
+.btn {
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-cancel {
+    background-color: #FF3F33;
+    color: #FFF;
+}
+
+.btn-add {
+    background-color: #687FE5;
+    color: #FFF;
+}
+
+.btn-delete {
+    background-color: #FF3F33;
+    color: #FFF;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+@media screen and (min-width: 1200px) {
+    header nav {
+        padding: 30px 180px;
+    }
+
+    main {
+        padding: 40px 180px;
+    }
+
+    .date-days {
+        padding: 20px 120px;
+    }
+
+    header nav .input-search {
+        width: 50%;
+        padding: 4px 12px;
+    }
+
+    .add-task {
+        width: 70px;
+        height: 70px;
+    }
+
+    .add-new {
+        top: 20%;
+        right: 20%;
+        left: 20%;
+    }
+}

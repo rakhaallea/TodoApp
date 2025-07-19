@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <!-- My Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Menu icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="profile-container">
+                <span class="material-symbols-outlined open-profile">
+                    account_circle
+                </span>
+
+                <div class="profile">
+                    <h3>Allea Rakha Mahardhika</h3>
+                    <p>Junior Front-End Developer</p>
+                    <button class="material-symbols-outlined danger closed">close</button>
+                </div>
+            </div>
+
+            <div class="month-year">
+                <p class="set-month"></p>
+                <p class="set-year"></p>
+                <span class="material-symbols-outlined">
+                    calendar_month
+                </span>
+            </div>
+            <input type="search" placeholder="Cari Todo" class="input-search hidden">
+
+            <div class="search open">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div>
+
+        </nav>
+
+        <div class="date-days">
+            <!-- Render date-days form js -->
+        </div>
+    </header>
+
+    <main>
+        <div class="header">
+            <h2 class="title-todo">To Do (0)</h2>
+            <button class="btn btn-delete">Hapus Semua</button>
+        </div>
+        <div class="todo" id="todo-container">
+            <!-- Render Todo from js -->
+        </div>
+        <h2 class="title-completed">Completed (0)</h2>
+        <div class="todo-completed" id="todo-completed-container">
+            <!-- Render todo completed from js -->
+        </div>
+
+        <button class="add-task">
+            <span class="material-symbols-outlined">
+                add
+            </span>
+        </button>
+
+        <form class="add-new" id="form-todo">
+            <h2>Tambah Todo</h2>
+            <div class="form-input">
+                <label for="">Masukan Todo</label>
+                <input type="text" class="input-todo" name="input-todo" id="your-todo" required>
+            </div>
+            <div class="form-input">
+                <label for="">Pilih Tanggal</label>
+                <input type="date" class="input-todo" name="input-tgl" id="todo-date" required>
+            </div>
+            <div class="form-input">
+                <label for="">Pilih Level</label>
+                <select name="input-priority" id="todo-priority" required>
+                    <option value="low">Low</option>
+                    <option value="mid">Mid</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="group-button">
+                <button class="btn btn-cancel" type="button">Batal</button>
+                <button class="btn btn-add" type="submit">Tambah</button>
+            </div>
+        </form>
+    </main>
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>
