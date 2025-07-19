@@ -420,8 +420,9 @@ document.addEventListener(RENDER_EVENT, () => {
     const elementDate = document.querySelectorAll('.date');
     const today = new Date();
 
+    const formattedDateToday = today.toISOString().split('T')[0];
     // clear time
-    today.setHours(0, 0, 0, 0);
+    // today.setHours(0, 0, 0, 0);
 
     elementDate.forEach((el, index) => {
         const textTgl = el.textContent.trim();
@@ -430,12 +431,14 @@ document.addEventListener(RENDER_EVENT, () => {
         // check format date
         if (!isNaN(dateObj.getTime())) {
             // clear time too
-            dateObj.setHours(0, 0, 0, 0);
+            // dateObj.setHours(0, 0, 0, 0);
+
+            const formattedDate = dateObj.toISOString().split('T')[0];
 
             const id = el.dataset.id;
             const todo = filteredTodos.find(t => t.id === id)
 
-            if (todo && !todo.isCompleted && dateObj < today) {
+            if (todo && !todo.isCompleted && formattedDate < formattedDateToday) {
                 el.style.color = "red"; // overdue
             }
         }
