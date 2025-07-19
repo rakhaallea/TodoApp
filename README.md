@@ -32,9 +32,11 @@ ToDoApp adalah aplikasi manajemen tugas yang dirancang untuk membantu pengguna d
 
 ## Screenshots
 
-![App Screenshot]("./assets/img/1.png")
-![App Screenshot]("./assets/img/2.png")
-![App Screenshot]("./assets/img/3.png")
+![App Screenshot](./assets/img/1.png) 
+
+![App Screenshot](./assets/img/2.png)
+
+![App Screenshot](./assets/img/3.png)
 
 
 ## Tech Stack
