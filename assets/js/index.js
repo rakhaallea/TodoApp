@@ -178,6 +178,11 @@ const addToCompleted = (todoID) => {
     if (todoTarget === null) return;
 
     todoTarget.isCompleted = true;
+    Swal.fire({
+        title: "Done!",
+        icon: "success",
+        draggable: true
+    });
     saveData()
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
@@ -189,6 +194,11 @@ const undoTodo = (todoID) => {
     if (todoTarget === null) return;
 
     todoTarget.isCompleted = false;
+    Swal.fire({
+        title: "Back to Todo!",
+        icon: "success",
+        draggable: true
+    });
     saveData();
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
@@ -200,6 +210,11 @@ const deleteTodo = (todoID) => {
     if (todoTarget === null) return;
 
     todos.splice(todoTarget, 1);
+    Swal.fire({
+        title: "Delete success!",
+        icon: "success",
+        draggable: true
+    });
     saveData();
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
@@ -207,6 +222,11 @@ const deleteTodo = (todoID) => {
 // Function Delete all todos
 const deleteAllTodos = () => {
     todos.length = 0;
+    Swal.fire({
+        title: "Delete all success!",
+        icon: "success",
+        draggable: true
+    });
     saveData();
     document.dispatchEvent(new Event(RENDER_EVENT));
 };
@@ -248,7 +268,19 @@ const makeTodo = (todoObject) => {
     buttonDelete.innerText = "delete";
 
     buttonDelete.addEventListener('click', () => {
-        deleteTodo(todoObject.id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#687FE5",
+            cancelButtonColor: "#FF3F33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteTodo(todoObject.id);
+            }
+        });
     });
 
     // Condition button card todo
